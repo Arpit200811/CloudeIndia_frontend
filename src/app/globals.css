@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+:root {
+  --background-light: #020617;
+  --background-dark: #020617;
+  --primary: #137fec;
+  --foreground: #1f2937;
+}
+
+@theme inline {
+  --color-primary: #137fec;
+  --color-background-light: #020617;
+  --color-background-dark: #020617;
+  --color-foreground: #1f2937;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background-light);
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+.main-wrapper {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+@keyframes shine {
+  from { left: -100%; opacity: 0; }
+  to { left: 100%; opacity: 0.5; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-shine {
+  animation: shine 2s infinite ease-in-out;
+}
+
+@keyframes scan {
+  0% { top: -10%; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { top: 110%; opacity: 0; }
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+
