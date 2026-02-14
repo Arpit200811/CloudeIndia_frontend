@@ -2,11 +2,11 @@
 
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Chrome, AlertCircle, Loader2, ArrowRight } from "lucide-react";
 
-export default function LoginPage() {
+function LoginContent() {
     const { data: session, status } = useSession();
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -138,5 +138,17 @@ export default function LoginPage() {
                 </motion.button>
             </motion.div>
         </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-slate-950">
+                <Loader2 className="w-8 h-8 text-primary animate-spin" />
+            </div>
+        }>
+            <LoginContent />
+        </Suspense>
     );
 }

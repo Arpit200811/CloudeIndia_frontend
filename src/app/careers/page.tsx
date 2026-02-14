@@ -4,6 +4,7 @@ import CareersHero from "@/components/careers/CareersHero";
 import OpenPositions from "@/components/careers/OpenPositions";
 import LifeAtCloude from "@/components/careers/LifeAtCloude";
 import InternshipProgram from "@/components/careers/InternshipProgram";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Careers | Join the Engineering Collective",
